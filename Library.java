@@ -1,12 +1,36 @@
 /* This is a stub for the Library class */
-public class Library {
+import java.util.Hashtable;
+public class Library extends Building {
+private Hashtable<String, Boolean> collection;
+private String title;
 
-    public Library() {
+  public Library(String name, String address, int nFloors) {
+    super(name, address, nFloors);
       System.out.println("You have built a library: 📖");
+      Hashtable <String, Boolean> collection = new Hashtable<>();
     }
-  
+    public void addTitle(String title){
+      collection.put(this.title, null);
+    }
+
+    public String removeTitle(String title) {
+      collection.remove(this.title, null);
+      return title;
+    }
+
+    public void checkOut(String title){
+      collection.replace(this.title, true, false);
+    }
+    public void returnBook(String title){
+      collection.replace(this.title, false, true);
+    }
+    
+
+    public String getTitle(){
+      return this.title;
+    }
     public static void main(String[] args) {
-      new Library();
+     
     }
   
   }
